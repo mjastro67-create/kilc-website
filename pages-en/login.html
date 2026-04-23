@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - KILC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <style>
+        .login-container {
+            max-width: 450px;
+            margin: 80px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .login-header h1 {
+            color: #8B1538;
+            margin-bottom: 10px;
+        }
+        
+        .login-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .login-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .login-form input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .login-form input:focus {
+            outline: none;
+            border-color: #8B1538;
+        }
+        
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .remember-forgot a {
+            color: #8B1538;
+            text-decoration: none;
+        }
+        
+        .remember-forgot a:hover {
+            text-decoration: underline;
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: #8B1538;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .login-btn:hover {
+            background: #6B0F2A;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 21, 56, 0.3);
+        }
+        
+        .social-login {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .social-login p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .social-buttons {
+            display: grid;
+            gap: 10px;
+        }
+        
+        .social-btn {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .social-btn:hover {
+            border-color: #8B1538;
+            background: #fdf5f7;
+        }
+        
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+        
+        .register-link a {
+            color: #8B1538;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <div class="contact-info">
+                        <span><i class="fas fa-envelope"></i> info@dongpo750.com</span>
+                        <span><i class="fas fa-phone"></i> +82-2-737-4727</span>
+                    </div>
+                    <div class="language-selector">
+                        <a href="../index.html" class="active">한국어</a>
+                        <a href="../index-en.html">English</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-content">
+                    <div class="logo">
+                        <a href="../index.html">
+                            <h1>KILC</h1>
+                            <p>세계한민족지도자회의</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-content">
+        <div class="container">
+            <div class="login-container">
+                <div class="login-header">
+                    <h1><i class="fas fa-user-circle"></i> Login</h1>
+                    <p>Welcome to Korea International Leaders Congress</p>
+                </div>
+                
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password"><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    
+                    <div class="remember-forgot">
+                        <label>
+                            <input type="checkbox" id="remember"> Remember me
+                        </label>
+                        <a href="#"><i class="fas fa-question-circle"></i> Forgot Password?</a>
+                    </div>
+                    
+                    <button type="submit" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </form>
+                
+                <div class="social-login">
+                    <p>Or login with</p>
+                    <div class="social-buttons">
+                        <a href="#" class="social-btn">
+                            <i class="fab fa-google" style="color: #DB4437;"></i> Continue with Google
+                        </a>
+                        <a href="#" class="social-btn">
+                            <i class="fab fa-facebook" style="color: #4267B2;"></i> Continue with Facebook
+                        </a>
+                        <a href="#" class="social-btn">
+                            <i class="fas fa-comment" style="color: #FEE500;"></i> Continue with Kakao
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="register-link">
+                    Don't have an account? <a href="register.html">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>KILC</h3>
+                    <p>세계한민족지도자회의</p>
+                    <p>Korea International Leaders Congress</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>바로가기</h4>
+                    <ul>
+                        <li><a href="greeting.html">이사장 인사말</a></li>
+                        <li><a href="inaugural-assembly.html">창립총회</a></li>
+                        <li><a href="charter.html">정관</a></li>
+                        <li><a href="members.html">회원명부</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Family Site</h4>
+                    <ul>
+                        <li><a href="#" target="_blank">주한 외국 대사관</a></li>
+                        <li><a href="#" target="_blank">국내 대표단체</a></li>
+                        <li><a href="#" target="_blank">정부부처</a></li>
+                        <li><a href="#" target="_blank">해외 공관</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>연락처</h4>
+                    <p><i class="fas fa-envelope"></i> info@dongpo750.com</p>
+                    <p><i class="fas fa-phone"></i> +82-2-737-4727</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 대한민국 서울시 종로구 당주동100 세종빌딩 B1-31호</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 KILC - 세계한민족지도자회의. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // 여기에 실제 로그인 로직을 추가하세요
+            alert('Login functionality requires backend integration.\nEmail: ' + email);
+        });
+    </script>
+</body>
+</html>

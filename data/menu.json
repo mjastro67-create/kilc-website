@@ -1,0 +1,329 @@
+{
+  "mainMenu": [
+    {
+      "id": "about",
+      "title": "KILC 소개",
+      "titleEn": "About KILC",
+      "url": "#",
+      "order": 1,
+      "visible": true,
+      "submenu": [
+        {
+          "id": "greeting",
+          "title": "인사말",
+          "titleEn": "Greeting",
+          "url": "pages/greeting.html",
+          "urlEn": "pages-en/greeting.html",
+          "order": 1,
+          "visible": true
+        },
+        {
+          "id": "founding",
+          "title": "창립 취지",
+          "titleEn": "Founding Purpose",
+          "url": "pages/founding.html",
+          "urlEn": "pages-en/founding.html",
+          "order": 2,
+          "visible": true
+        },
+        {
+          "id": "charter",
+          "title": "정관",
+          "titleEn": "Charter",
+          "url": "pages/charter.html",
+          "urlEn": "pages-en/charter.html",
+          "order": 3,
+          "visible": true
+        },
+        {
+          "id": "organization",
+          "title": "조직도",
+          "titleEn": "Organization",
+          "url": "pages/organization.html",
+          "urlEn": "pages-en/organization.html",
+          "order": 4,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "activities",
+      "title": "주요 활동",
+      "titleEn": "Activities",
+      "url": "#",
+      "order": 2,
+      "visible": true,
+      "submenu": [
+        {
+          "id": "hangeul",
+          "title": "한글",
+          "titleEn": "Hangeul",
+          "url": "pages/hangeul.html",
+          "urlEn": "pages-en/hangeul.html",
+          "order": 1,
+          "visible": true
+        },
+        {
+          "id": "hansik",
+          "title": "한식",
+          "titleEn": "Korean Cuisine",
+          "url": "pages/hansik.html",
+          "urlEn": "pages-en/hansik.html",
+          "order": 2,
+          "visible": true
+        },
+        {
+          "id": "hanbok",
+          "title": "한복",
+          "titleEn": "Hanbok",
+          "url": "pages/hanbok.html",
+          "urlEn": "pages-en/hanbok.html",
+          "order": 3,
+          "visible": true
+        },
+        {
+          "id": "hanok",
+          "title": "한옥",
+          "titleEn": "Hanok",
+          "url": "pages/hanok.html",
+          "urlEn": "pages-en/hanok.html",
+          "order": 4,
+          "visible": true
+        },
+        {
+          "id": "hanji",
+          "title": "한지",
+          "titleEn": "Korean Paper",
+          "url": "pages/hanji.html",
+          "urlEn": "pages-en/hanji.html",
+          "order": 5,
+          "visible": true
+        },
+        {
+          "id": "hanak",
+          "title": "한악",
+          "titleEn": "Korean Music",
+          "url": "pages/hanak.html",
+          "urlEn": "pages-en/hanak.html",
+          "order": 6,
+          "visible": true
+        },
+        {
+          "id": "hanbang",
+          "title": "한방",
+          "titleEn": "Korean Medicine",
+          "url": "pages/hanbang.html",
+          "urlEn": "pages-en/hanbang.html",
+          "order": 7,
+          "visible": true
+        },
+        {
+          "id": "hansang",
+          "title": "한상",
+          "titleEn": "Korean Table",
+          "url": "pages/hansang.html",
+          "urlEn": "pages-en/hansang.html",
+          "order": 8,
+          "visible": true
+        },
+        {
+          "id": "hankyore",
+          "title": "한겨레",
+          "titleEn": "Korean People",
+          "url": "pages/hankyore.html",
+          "urlEn": "pages-en/hankyore.html",
+          "order": 9,
+          "visible": true
+        },
+        {
+          "id": "unification",
+          "title": "통일",
+          "titleEn": "Unification",
+          "url": "pages/unification.html",
+          "urlEn": "pages-en/unification.html",
+          "order": 10,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "members",
+      "title": "회원",
+      "titleEn": "Members",
+      "url": "#",
+      "order": 3,
+      "visible": true,
+      "submenu": [
+        {
+          "id": "member-list",
+          "title": "회원 명단",
+          "titleEn": "Member List",
+          "url": "pages/members.html",
+          "urlEn": "pages-en/members.html",
+          "order": 1,
+          "visible": true
+        },
+        {
+          "id": "member-certificate",
+          "title": "임원 현황",
+          "titleEn": "Board Members",
+          "url": "pages/certificate.html",
+          "urlEn": "pages-en/certificate.html",
+          "order": 2,
+          "visible": true
+        },
+        {
+          "id": "member-education",
+          "title": "회원 교육",
+          "titleEn": "Member Education",
+          "url": "pages/education.html",
+          "urlEn": "pages-en/education.html",
+          "order": 3,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "events",
+      "title": "행사",
+      "titleEn": "Events",
+      "url": "#",
+      "order": 4,
+      "visible": true,
+      "submenu": [
+        {
+          "id": "leaders-convention",
+          "title": "세계지도자대회",
+          "titleEn": "World Leaders Convention",
+          "url": "pages/leaders-convention.html",
+          "urlEn": "pages-en/leaders-convention.html",
+          "order": 1,
+          "visible": true,
+          "submenu": [
+            {
+              "id": "convention-2025",
+              "title": "2025 세계지도자대회",
+              "titleEn": "2025 World Leaders Convention",
+              "url": "pages/leaders-convention-2025.html",
+              "urlEn": "pages-en/leaders-convention-2025.html",
+              "order": 1,
+              "visible": true
+            }
+          ]
+        },
+        {
+          "id": "general-meeting",
+          "title": "총회",
+          "titleEn": "General Meeting",
+          "url": "pages/general-meeting.html",
+          "urlEn": "pages-en/general-meeting.html",
+          "order": 2,
+          "visible": true,
+          "submenu": [
+            {
+              "id": "meeting-2026",
+              "title": "2026 총회",
+              "titleEn": "2026 General Meeting",
+              "url": "pages/general-meeting-2026.html",
+              "urlEn": "pages-en/general-meeting-2026.html",
+              "order": 1,
+              "visible": true
+            }
+          ]
+        },
+        {
+          "id": "board-meeting",
+          "title": "이사회",
+          "titleEn": "Board Meeting",
+          "url": "pages/board-meeting.html",
+          "urlEn": "pages-en/board-meeting.html",
+          "order": 3,
+          "visible": true
+        },
+        {
+          "id": "special-meeting",
+          "title": "임시총회",
+          "titleEn": "Special Meeting",
+          "url": "pages/special-meeting.html",
+          "urlEn": "pages-en/special-meeting.html",
+          "order": 4,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "news",
+      "title": "소식",
+      "titleEn": "News",
+      "url": "#",
+      "order": 5,
+      "visible": true,
+      "submenu": [
+        {
+          "id": "other-news",
+          "title": "KILC 소식",
+          "titleEn": "KILC News",
+          "url": "pages/other-news.html",
+          "urlEn": "pages-en/other-news.html",
+          "order": 1,
+          "visible": true
+        },
+        {
+          "id": "overseas-info",
+          "title": "해외 지부 소식",
+          "titleEn": "Overseas Branches",
+          "url": "pages/overseas-info.html",
+          "urlEn": "pages-en/overseas-info.html",
+          "order": 2,
+          "visible": true
+        },
+        {
+          "id": "domestic-info",
+          "title": "국내 지부 소식",
+          "titleEn": "Domestic Branches",
+          "url": "pages/domestic-info.html",
+          "urlEn": "pages-en/domestic-info.html",
+          "order": 3,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "support",
+      "title": "후원",
+      "titleEn": "Support",
+      "url": "#",
+      "order": 6,
+      "visible": true,
+      "submenu": [
+        {
+          "id": "company-intro",
+          "title": "후원 기업 소개",
+          "titleEn": "Sponsor Companies",
+          "url": "pages/company-intro.html",
+          "urlEn": "pages-en/company-intro.html",
+          "order": 1,
+          "visible": true
+        },
+        {
+          "id": "education-venue",
+          "title": "교육장 제공",
+          "titleEn": "Education Venue",
+          "url": "pages/education-venue.html",
+          "urlEn": "pages-en/education-venue.html",
+          "order": 2,
+          "visible": true
+        },
+        {
+          "id": "business-proposal",
+          "title": "사업 제안",
+          "titleEn": "Business Proposal",
+          "url": "pages/business-proposal.html",
+          "urlEn": "pages-en/business-proposal.html",
+          "order": 3,
+          "visible": true
+        }
+      ]
+    }
+  ]
+}

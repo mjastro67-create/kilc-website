@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사이트 설정 - KILC 관리자</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="admin-nav">
+        <div class="nav-brand">KILC 관리자</div>
+        <div class="nav-menu">
+            <a href="index.html"><i class="fas fa-home"></i> 대시보드</a>
+            <a href="menu-manager.html"><i class="fas fa-bars"></i> 메뉴 관리</a>
+            <a href="page-manager.html"><i class="fas fa-file"></i> 페이지 관리</a>
+            <a href="content-editor.html"><i class="fas fa-edit"></i> 콘텐츠 편집</a>
+            <a href="settings.html" class="active"><i class="fas fa-cog"></i> 설정</a>
+        </div>
+        <div class="nav-user">
+            <span id="adminUsername">관리자</span>
+            <button class="btn-logout" onclick="logout()">로그아웃</button>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1><i class="fas fa-cog"></i> 사이트 설정</h1>
+            <p>웹사이트의 기본 정보와 설정을 관리합니다</p>
+        </div>
+
+        <!-- 알림 메시지 -->
+        <div id="alertMessage" class="alert" style="display: none;"></div>
+
+        <!-- 설정 탭 -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('general')">일반 설정</button>
+            <button class="tab-btn" onclick="switchTab('contact')">연락처 정보</button>
+            <button class="tab-btn" onclick="switchTab('seo')">SEO 설정</button>
+            <button class="tab-btn" onclick="switchTab('appearance')">디자인</button>
+            <button class="tab-btn" onclick="switchTab('advanced')">고급 설정</button>
+        </div>
+
+        <!-- 일반 설정 탭 -->
+        <div id="generalTab" class="tab-content active">
+            <div class="settings-section">
+                <h2>기본 정보</h2>
+                <div class="form-group">
+                    <label for="siteName">사이트 이름</label>
+                    <input type="text" id="siteName" class="form-control" placeholder="KILC 세계지도자협회">
+                </div>
+                <div class="form-group">
+                    <label for="siteNameEn">사이트 이름 (영문)</label>
+                    <input type="text" id="siteNameEn" class="form-control" placeholder="KILC World Leaders Association">
+                </div>
+                <div class="form-group">
+                    <label for="siteDescription">사이트 설명</label>
+                    <textarea id="siteDescription" class="form-control" rows="3" placeholder="세계평화와 인류공영을 위한 세계지도자들의 협력체"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="siteUrl">사이트 URL</label>
+                    <input type="url" id="siteUrl" class="form-control" placeholder="https://www.dongpo750.com">
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>언어 설정</h2>
+                <div class="form-group">
+                    <label for="defaultLang">기본 언어</label>
+                    <select id="defaultLang" class="form-control">
+                        <option value="ko">한국어</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="enableMultiLang" checked>
+                        다국어 지원 활성화
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 연락처 정보 탭 -->
+        <div id="contactTab" class="tab-content">
+            <div class="settings-section">
+                <h2>연락처 정보</h2>
+                <div class="form-group">
+                    <label for="contactPhone">대표 전화번호</label>
+                    <input type="tel" id="contactPhone" class="form-control" placeholder="+82-2-737-4727">
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">대표 이메일</label>
+                    <input type="email" id="contactEmail" class="form-control" placeholder="info@dongpo750.com">
+                </div>
+                <div class="form-group">
+                    <label for="contactFax">팩스</label>
+                    <input type="tel" id="contactFax" class="form-control" placeholder="+82-2-737-4728">
+                </div>
+                <div class="form-group">
+                    <label for="contactAddress">주소</label>
+                    <textarea id="contactAddress" class="form-control" rows="2" placeholder="서울특별시 중구 세종대로 110"></textarea>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>소셜 미디어</h2>
+                <div class="form-group">
+                    <label for="socialFacebook"><i class="fab fa-facebook"></i> Facebook</label>
+                    <input type="url" id="socialFacebook" class="form-control" placeholder="https://facebook.com/kilc">
+                </div>
+                <div class="form-group">
+                    <label for="socialInstagram"><i class="fab fa-instagram"></i> Instagram</label>
+                    <input type="url" id="socialInstagram" class="form-control" placeholder="https://instagram.com/kilc">
+                </div>
+                <div class="form-group">
+                    <label for="socialYoutube"><i class="fab fa-youtube"></i> YouTube</label>
+                    <input type="url" id="socialYoutube" class="form-control" placeholder="https://youtube.com/kilc">
+                </div>
+                <div class="form-group">
+                    <label for="socialTwitter"><i class="fab fa-twitter"></i> Twitter (X)</label>
+                    <input type="url" id="socialTwitter" class="form-control" placeholder="https://twitter.com/kilc">
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO 설정 탭 -->
+        <div id="seoTab" class="tab-content">
+            <div class="settings-section">
+                <h2>검색 엔진 최적화 (SEO)</h2>
+                <div class="form-group">
+                    <label for="metaTitle">메타 타이틀</label>
+                    <input type="text" id="metaTitle" class="form-control" placeholder="KILC 세계지도자협회 - 세계평화와 인류공영">
+                </div>
+                <div class="form-group">
+                    <label for="metaDescription">메타 설명</label>
+                    <textarea id="metaDescription" class="form-control" rows="3" placeholder="KILC는 세계평화와 인류공영을 위해 노력하는 세계지도자들의 협력체입니다."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="metaKeywords">메타 키워드 (쉼표로 구분)</label>
+                    <input type="text" id="metaKeywords" class="form-control" placeholder="KILC, 세계지도자협회, 세계평화, 인류공영">
+                </div>
+                <div class="form-group">
+                    <label for="googleAnalytics">Google Analytics ID</label>
+                    <input type="text" id="googleAnalytics" class="form-control" placeholder="G-XXXXXXXXXX">
+                </div>
+                <div class="form-group">
+                    <label for="naverWebmaster">네이버 웹마스터 인증 코드</label>
+                    <input type="text" id="naverWebmaster" class="form-control" placeholder="xxxxxxxxxxxxxxxxxx">
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>Open Graph (소셜 공유)</h2>
+                <div class="form-group">
+                    <label for="ogImage">OG 이미지 URL</label>
+                    <input type="url" id="ogImage" class="form-control" placeholder="https://www.dongpo750.com/images/og-image.jpg">
+                    <small>소셜 미디어 공유 시 표시될 이미지 (권장: 1200x630px)</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- 디자인 탭 -->
+        <div id="appearanceTab" class="tab-content">
+            <div class="settings-section">
+                <h2>색상 테마</h2>
+                <div class="form-group">
+                    <label for="primaryColor">주요 색상 (Primary)</label>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <input type="color" id="primaryColor" value="#2d8659">
+                        <input type="text" id="primaryColorText" class="form-control" value="#2d8659" style="width: 120px;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="secondaryColor">보조 색상 (Secondary)</label>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <input type="color" id="secondaryColor" value="#1f6b44">
+                        <input type="text" id="secondaryColorText" class="form-control" value="#1f6b44" style="width: 120px;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="accentColor">강조 색상 (Accent)</label>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <input type="color" id="accentColor" value="#3fa76f">
+                        <input type="text" id="accentColorText" class="form-control" value="#3fa76f" style="width: 120px;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="blueColor">블루 색상</label>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <input type="color" id="blueColor" value="#2874a6">
+                        <input type="text" id="blueColorText" class="form-control" value="#2874a6" style="width: 120px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>로고 및 파비콘</h2>
+                <div class="form-group">
+                    <label for="logoUrl">로고 이미지 URL</label>
+                    <input type="url" id="logoUrl" class="form-control" placeholder="/images/logo.png">
+                </div>
+                <div class="form-group">
+                    <label for="faviconUrl">파비콘 URL</label>
+                    <input type="url" id="faviconUrl" class="form-control" placeholder="/favicon.ico">
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>레이아웃 옵션</h2>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="enableGradient" checked>
+                        그라데이션 배경 사용
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="enableStickyNav" checked>
+                        고정 네비게이션 바
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="enableFooterSocial" checked>
+                        푸터에 소셜 미디어 아이콘 표시
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 고급 설정 탭 -->
+        <div id="advancedTab" class="tab-content">
+            <div class="settings-section">
+                <h2>커스텀 코드</h2>
+                <div class="form-group">
+                    <label for="customCSS">커스텀 CSS</label>
+                    <textarea id="customCSS" class="form-control code-editor" rows="8" placeholder="/* 여기에 커스텀 CSS를 입력하세요 */"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="customJS">커스텀 JavaScript</label>
+                    <textarea id="customJS" class="form-control code-editor" rows="8" placeholder="// 여기에 커스텀 JavaScript를 입력하세요"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="customHead">커스텀 &lt;head&gt; 코드</label>
+                    <textarea id="customHead" class="form-control code-editor" rows="5" placeholder="<!-- 여기에 <head> 태그에 추가할 코드를 입력하세요 -->"></textarea>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>유지보수 모드</h2>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="maintenanceMode">
+                        유지보수 모드 활성화
+                    </label>
+                    <small>활성화 시 관리자를 제외한 모든 방문자에게 유지보수 페이지가 표시됩니다.</small>
+                </div>
+                <div class="form-group">
+                    <label for="maintenanceMessage">유지보수 메시지</label>
+                    <textarea id="maintenanceMessage" class="form-control" rows="3" placeholder="현재 사이트 점검 중입니다. 잠시 후 다시 방문해 주세요."></textarea>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>데이터 관리</h2>
+                <div class="form-group">
+                    <button class="btn btn-secondary" onclick="exportSettings()">
+                        <i class="fas fa-download"></i> 설정 내보내기
+                    </button>
+                    <button class="btn btn-secondary" onclick="importSettings()">
+                        <i class="fas fa-upload"></i> 설정 가져오기
+                    </button>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-danger" onclick="resetSettings()">
+                        <i class="fas fa-redo"></i> 모든 설정 초기화
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 저장 버튼 -->
+        <div class="form-actions" style="margin-top: 30px;">
+            <button class="btn btn-primary btn-lg" onclick="saveSettings()">
+                <i class="fas fa-save"></i> 설정 저장
+            </button>
+            <button class="btn btn-secondary btn-lg" onclick="resetForm()">
+                <i class="fas fa-undo"></i> 변경사항 취소
+            </button>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+</html>

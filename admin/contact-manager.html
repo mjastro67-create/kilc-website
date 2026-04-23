@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연락처 관리 - KILC 관리자</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/admin-enhanced.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- 사이드바 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏛️ KILC</h2>
+                <p>관리자 시스템</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>대시보드</span>
+                </a>
+                <a href="menu-manager.html" class="nav-item">
+                    <i class="fas fa-bars"></i>
+                    <span>메뉴 관리</span>
+                </a>
+                <a href="page-manager.html" class="nav-item">
+                    <i class="fas fa-file"></i>
+                    <span>페이지 관리</span>
+                </a>
+                <a href="content-editor.html" class="nav-item">
+                    <i class="fas fa-edit"></i>
+                    <span>내용 편집</span>
+                </a>
+                <a href="contact-manager.html" class="nav-item active">
+                    <i class="fas fa-address-book"></i>
+                    <span>연락처 관리</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>설정</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <div>
+                        <p class="user-name" id="userName">관리자</p>
+                        <p class="user-role">시스템 관리자</p>
+                    </div>
+                </div>
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    로그아웃
+                </button>
+            </div>
+        </aside>
+
+        <!-- 메인 콘텐츠 -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-left">
+                    <h1>📞 연락처 관리</h1>
+                    <p>모든 페이지의 연락처 정보를 일괄 수정합니다</p>
+                </div>
+                <div class="header-right">
+                    <button class="btn-secondary" onclick="loadCurrentContacts()">
+                        <i class="fas fa-sync-alt"></i>
+                        새로고침
+                    </button>
+                </div>
+            </header>
+
+            <!-- 현재 연락처 정보 -->
+            <section class="contact-section">
+                <h2><i class="fas fa-info-circle"></i> 현재 연락처 정보</h2>
+                <div class="current-contacts" id="currentContacts">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contact-info">
+                            <h3>대표 전화</h3>
+                            <p id="currentPhone">+82-2-737-4727</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-info">
+                            <h3>이메일</h3>
+                            <p id="currentEmail">info@dongpo750.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-fax"></i></div>
+                        <div class="contact-info">
+                            <h3>팩스</h3>
+                            <p id="currentFax">+82-2-737-4728</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-info">
+                            <h3>주소</h3>
+                            <p id="currentAddress">대한민국 서울시 종로구 당주동100 세종빌딩 B1-31호</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 연락처 수정 폼 -->
+            <section class="contact-section">
+                <h2><i class="fas fa-edit"></i> 연락처 수정</h2>
+                <div class="form-container">
+                    <div class="form-group">
+                        <label for="newPhone">
+                            <i class="fas fa-phone"></i> 대표 전화번호
+                        </label>
+                        <input type="tel" id="newPhone" class="form-control" placeholder="+82-2-737-4727" value="+82-2-737-4727">
+                        <small>형식: +82-2-XXX-XXXX</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newEmail">
+                            <i class="fas fa-envelope"></i> 이메일
+                        </label>
+                        <input type="email" id="newEmail" class="form-control" placeholder="info@dongpo750.com" value="info@dongpo750.com">
+                        <small>형식: email@domain.com</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newFax">
+                            <i class="fas fa-fax"></i> 팩스 번호
+                        </label>
+                        <input type="tel" id="newFax" class="form-control" placeholder="+82-2-737-4728" value="+82-2-737-4728">
+                        <small>형식: +82-2-XXX-XXXX</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newAddress">
+                            <i class="fas fa-map-marker-alt"></i> 주소
+                        </label>
+                        <textarea id="newAddress" class="form-control" rows="2" placeholder="서울특별시 중구 세종대로 110">대한민국 서울시 종로구 당주동100 세종빌딩 B1-31호</textarea>
+                        <small>한국어와 영문 주소 모두 지원</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newAddressEn">
+                            <i class="fas fa-map-marker-alt"></i> 주소 (영문)
+                        </label>
+                        <textarea id="newAddressEn" class="form-control" rows="2" placeholder="110 Sejong-daero, Jung-gu, Seoul, Republic of Korea">Sejong Building B1-31, 100 Dangju-dong, Jongno-gu, Seoul, Korea</textarea>
+                        <small>영문 페이지용 주소</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 적용 범위 선택 -->
+            <section class="contact-section">
+                <h2><i class="fas fa-check-square"></i> 적용 범위</h2>
+                <div class="apply-scope">
+                    <div class="scope-option">
+                        <label>
+                            <input type="checkbox" id="applyKorean" checked>
+                            <span>한국어 페이지 (34개)</span>
+                        </label>
+                    </div>
+                    <div class="scope-option">
+                        <label>
+                            <input type="checkbox" id="applyEnglish" checked>
+                            <span>영문 페이지 (52개)</span>
+                        </label>
+                    </div>
+                    <div class="scope-option">
+                        <label>
+                            <input type="checkbox" id="applyMain" checked>
+                            <span>메인 페이지 (4개)</span>
+                        </label>
+                    </div>
+                    <div class="scope-option">
+                        <label>
+                            <input type="checkbox" id="applyAdmin" checked>
+                            <span>관리자 페이지</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 변경 미리보기 -->
+            <section class="contact-section">
+                <h2><i class="fas fa-eye"></i> 변경사항 미리보기</h2>
+                <div class="preview-container">
+                    <div class="preview-card">
+                        <h3>변경 전</h3>
+                        <div class="preview-content">
+                            <p><i class="fas fa-phone"></i> <span id="previewOldPhone">+82-2-737-4727</span></p>
+                            <p><i class="fas fa-envelope"></i> <span id="previewOldEmail">info@dongpo750.com</span></p>
+                            <p><i class="fas fa-fax"></i> <span id="previewOldFax">+82-2-737-4728</span></p>
+                        </div>
+                    </div>
+                    <div class="preview-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="preview-card">
+                        <h3>변경 후</h3>
+                        <div class="preview-content">
+                            <p><i class="fas fa-phone"></i> <span id="previewNewPhone">+82-2-737-4727</span></p>
+                            <p><i class="fas fa-envelope"></i> <span id="previewNewEmail">info@dongpo750.com</span></p>
+                            <p><i class="fas fa-fax"></i> <span id="previewNewFax">+82-2-737-4728</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 작업 버튼 -->
+            <div class="action-buttons">
+                <button class="btn btn-primary btn-lg" onclick="applyContactChanges()">
+                    <i class="fas fa-save"></i>
+                    모든 페이지에 일괄 적용
+                </button>
+                <button class="btn btn-secondary btn-lg" onclick="resetForm()">
+                    <i class="fas fa-undo"></i>
+                    초기화
+                </button>
+            </div>
+
+            <!-- 적용 상태 -->
+            <section class="contact-section" id="applyStatus" style="display: none;">
+                <h2><i class="fas fa-tasks"></i> 적용 진행 상황</h2>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                    </div>
+                    <p class="progress-text"><span id="progressText">준비 중...</span></p>
+                </div>
+                <div class="file-list" id="fileList"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        // 페이지 로드 시 인증 확인
+        checkAuth();
+
+        // 현재 연락처 정보 로드
+        async function loadCurrentContacts() {
+            try {
+                const response = await fetch('/tables/contact_info?limit=100');
+                const data = await response.json();
+                
+                if (data && data.data) {
+                    data.data.forEach(contact => {
+                        if (contact.type === 'phone') {
+                            document.getElementById('currentPhone').textContent = contact.value;
+                            document.getElementById('newPhone').value = contact.value;
+                        } else if (contact.type === 'email') {
+                            document.getElementById('currentEmail').textContent = contact.value;
+                            document.getElementById('newEmail').value = contact.value;
+                        } else if (contact.type === 'fax') {
+                            document.getElementById('currentFax').textContent = contact.value;
+                            document.getElementById('newFax').value = contact.value;
+                        } else if (contact.type === 'address') {
+                            document.getElementById('currentAddress').textContent = contact.value;
+                            document.getElementById('newAddress').value = contact.value;
+                        }
+                    });
+                    updatePreview();
+                }
+            } catch (error) {
+                console.error('Error loading contacts:', error);
+            }
+        }
+
+        // 미리보기 업데이트
+        function updatePreview() {
+            document.getElementById('previewOldPhone').textContent = document.getElementById('currentPhone').textContent;
+            document.getElementById('previewOldEmail').textContent = document.getElementById('currentEmail').textContent;
+            document.getElementById('previewOldFax').textContent = document.getElementById('currentFax').textContent;
+            
+            document.getElementById('previewNewPhone').textContent = document.getElementById('newPhone').value;
+            document.getElementById('previewNewEmail').textContent = document.getElementById('newEmail').value;
+            document.getElementById('previewNewFax').textContent = document.getElementById('newFax').value;
+        }
+
+        // 입력 필드 변경 시 미리보기 업데이트
+        document.getElementById('newPhone').addEventListener('input', updatePreview);
+        document.getElementById('newEmail').addEventListener('input', updatePreview);
+        document.getElementById('newFax').addEventListener('input', updatePreview);
+
+        // 연락처 변경 적용
+        async function applyContactChanges() {
+            const newPhone = document.getElementById('newPhone').value;
+            const newEmail = document.getElementById('newEmail').value;
+            const newFax = document.getElementById('newFax').value;
+            const newAddress = document.getElementById('newAddress').value;
+            const newAddressEn = document.getElementById('newAddressEn').value;
+
+            const applyKorean = document.getElementById('applyKorean').checked;
+            const applyEnglish = document.getElementById('applyEnglish').checked;
+            const applyMain = document.getElementById('applyMain').checked;
+
+            // 유효성 검사
+            if (!newPhone || !newEmail) {
+                alert('전화번호와 이메일은 필수 입력 항목입니다.');
+                return;
+            }
+
+            if (!confirm('모든 페이지의 연락처를 일괄 변경하시겠습니까?\n\n이 작업은 되돌릴 수 없습니다.')) {
+                return;
+            }
+
+            // 진행 상태 표시
+            document.getElementById('applyStatus').style.display = 'block';
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            const fileList = document.getElementById('fileList');
+
+            progressText.textContent = '연락처 정보를 데이터베이스에 저장 중...';
+            progressFill.style.width = '10%';
+
+            try {
+                // 데이터베이스에 연락처 정보 저장
+                const response = await fetch('/tables/contact_info?limit=100');
+                const data = await response.json();
+
+                for (const contact of data.data) {
+                    let newValue = contact.value;
+                    if (contact.type === 'phone') newValue = newPhone;
+                    else if (contact.type === 'email') newValue = newEmail;
+                    else if (contact.type === 'fax') newValue = newFax;
+                    else if (contact.type === 'address') newValue = newAddress;
+
+                    await fetch(`/tables/contact_info/${contact.id}`, {
+                        method: 'PATCH',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({value: newValue})
+                    });
+                }
+
+                progressFill.style.width = '100%';
+                progressText.textContent = '✅ 연락처 정보가 성공적으로 저장되었습니다!';
+
+                fileList.innerHTML = `
+                    <div style="padding: 20px; background: #e8f5e9; border-radius: 8px; margin-top: 20px;">
+                        <h3 style="color: #2d8659; margin-bottom: 15px;"><i class="fas fa-check-circle"></i> 저장 완료</h3>
+                        <p><i class="fas fa-phone"></i> 전화번호: ${newPhone}</p>
+                        <p><i class="fas fa-envelope"></i> 이메일: ${newEmail}</p>
+                        <p><i class="fas fa-fax"></i> 팩스: ${newFax}</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 주소: ${newAddress}</p>
+                        <br>
+                        <p style="color: #666; font-size: 14px;">
+                            <i class="fas fa-info-circle"></i> 
+                            실제 HTML 파일 수정은 <strong>"변경사항 적용"</strong> 버튼을 통해 Netlify/Cafe24 배포 후 적용됩니다.
+                        </p>
+                        <button class="btn btn-primary" onclick="location.href='index.html'" style="margin-top: 15px;">
+                            <i class="fas fa-home"></i> 대시보드로 돌아가기
+                        </button>
+                    </div>
+                `;
+
+                // 현재 연락처 정보 업데이트
+                loadCurrentContacts();
+
+            } catch (error) {
+                progressText.textContent = '❌ 오류가 발생했습니다: ' + error.message;
+                console.error(error);
+            }
+        }
+
+        // 폼 초기화
+        function resetForm() {
+            if (confirm('변경사항을 취소하고 초기화하시겠습니까?')) {
+                loadCurrentContacts();
+            }
+        }
+
+        // 로그아웃
+        function logout() {
+            if (confirm('로그아웃하시겠습니까?')) {
+                localStorage.removeItem('kilc_admin_session');
+                sessionStorage.removeItem('kilc_admin_session');
+                window.location.href = 'login.html';
+            }
+        }
+
+        // 페이지 로드 시 연락처 정보 로드
+        window.addEventListener('DOMContentLoaded', loadCurrentContacts);
+    </script>
+
+    <style>
+        .contact-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .contact-section h2 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .current-contacts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2d8659 0%, #1f6b44 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+        }
+
+        .contact-info h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            margin: 0 0 5px 0;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            margin: 0;
+        }
+
+        .form-container {
+            max-width: 800px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .form-group label i {
+            color: #2d8659;
+            margin-right: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #2d8659;
+        }
+
+        .form-group small {
+            display: block;
+            margin-top: 5px;
+            color: #999;
+            font-size: 13px;
+        }
+
+        .apply-scope {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .scope-option label {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f9f9f9;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scope-option label:hover {
+            background: #f0f0f0;
+            border-color: #2d8659;
+        }
+
+        .scope-option input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .scope-option input[type="checkbox"]:checked + span {
+            color: #2d8659;
+            font-weight: 600;
+        }
+
+        .preview-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .preview-card {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .preview-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .preview-content p {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .preview-content i {
+            color: #2d8659;
+            width: 20px;
+        }
+
+        .preview-arrow {
+            font-size: 30px;
+            color: #2d8659;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .progress-container {
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #f0f0f0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2d8659 0%, #3fa76f 100%);
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .file-list {
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        @media (max-width: 768px) {
+            .preview-container {
+                flex-direction: column;
+            }
+
+            .preview-arrow {
+                transform: rotate(90deg);
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .action-buttons .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</body>
+</html>

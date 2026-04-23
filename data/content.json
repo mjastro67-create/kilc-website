@@ -1,0 +1,171 @@
+{
+  "sections": {
+    "hero": {
+      "title": "KILC 세계지도자협회",
+      "titleEn": "KILC World Leaders Association",
+      "subtitle": "세계평화와 인류공영을 위한 세계지도자들의 협력체",
+      "subtitleEn": "A Global Network of Leaders for World Peace and Human Prosperity",
+      "backgroundImage": "/images/hero-bg.jpg",
+      "ctaText": "더 알아보기",
+      "ctaTextEn": "Learn More",
+      "ctaLink": "#about"
+    },
+    "about": {
+      "title": "KILC 소개",
+      "titleEn": "About KILC",
+      "content": "KILC(세계지도자협회)는 세계평화와 인류공영을 위해 노력하는 세계 각국의 지도자들이 모인 국제 협력 기구입니다.",
+      "contentEn": "KILC (World Leaders Association) is an international cooperation organization of leaders from around the world working for world peace and human prosperity.",
+      "features": [
+        {
+          "icon": "fa-globe",
+          "title": "글로벌 네트워크",
+          "titleEn": "Global Network",
+          "description": "전 세계 지도자들과의 협력",
+          "descriptionEn": "Cooperation with leaders worldwide"
+        },
+        {
+          "icon": "fa-handshake",
+          "title": "평화 증진",
+          "titleEn": "Peace Promotion",
+          "description": "세계평화를 위한 노력",
+          "descriptionEn": "Efforts for world peace"
+        },
+        {
+          "icon": "fa-heart",
+          "title": "문화 교류",
+          "titleEn": "Cultural Exchange",
+          "description": "한국 문화의 세계화",
+          "descriptionEn": "Globalization of Korean culture"
+        }
+      ]
+    },
+    "activities": {
+      "title": "주요 활동",
+      "titleEn": "Main Activities",
+      "items": [
+        {
+          "id": "hangeul",
+          "title": "한글",
+          "titleEn": "Hangeul",
+          "icon": "fa-language",
+          "description": "한글의 세계화 및 보급",
+          "descriptionEn": "Globalization and dissemination of Hangeul",
+          "image": "/images/hangeul.jpg"
+        },
+        {
+          "id": "hansik",
+          "title": "한식",
+          "titleEn": "Korean Cuisine",
+          "icon": "fa-utensils",
+          "description": "한식의 세계화",
+          "descriptionEn": "Globalization of Korean cuisine",
+          "image": "/images/hansik.jpg"
+        },
+        {
+          "id": "hanbok",
+          "title": "한복",
+          "titleEn": "Hanbok",
+          "icon": "fa-tshirt",
+          "description": "한복의 세계화",
+          "descriptionEn": "Globalization of Hanbok",
+          "image": "/images/hanbok.jpg"
+        },
+        {
+          "id": "hanok",
+          "title": "한옥",
+          "titleEn": "Hanok",
+          "icon": "fa-home",
+          "description": "한옥의 세계화",
+          "descriptionEn": "Globalization of Hanok",
+          "image": "/images/hanok.jpg"
+        }
+      ]
+    },
+    "events": {
+      "title": "주요 행사",
+      "titleEn": "Major Events",
+      "featured": [
+        {
+          "id": "leaders-convention-2025",
+          "title": "2025 세계지도자대회",
+          "titleEn": "2025 World Leaders Convention",
+          "date": "2025-10-15",
+          "location": "서울, 대한민국",
+          "locationEn": "Seoul, Korea",
+          "description": "세계 각국의 지도자들이 모여 평화와 협력을 논의하는 국제 행사",
+          "descriptionEn": "An international event where leaders from around the world gather to discuss peace and cooperation",
+          "image": "/images/convention-2025.jpg",
+          "link": "pages/leaders-convention-2025.html"
+        }
+      ]
+    },
+    "membership": {
+      "title": "회원 가입",
+      "titleEn": "Membership",
+      "description": "KILC 회원이 되어 세계평화와 인류공영에 함께 하십시오.",
+      "descriptionEn": "Become a KILC member and join us in working for world peace and human prosperity.",
+      "benefits": [
+        {
+          "icon": "fa-certificate",
+          "title": "회원 증서",
+          "titleEn": "Membership Certificate",
+          "description": "공식 회원 증서 발급",
+          "descriptionEn": "Official membership certificate"
+        },
+        {
+          "icon": "fa-users",
+          "title": "네트워킹",
+          "titleEn": "Networking",
+          "description": "글로벌 리더들과의 교류",
+          "descriptionEn": "Exchange with global leaders"
+        },
+        {
+          "icon": "fa-calendar",
+          "title": "행사 참여",
+          "titleEn": "Event Participation",
+          "description": "국제 행사 참여 기회",
+          "descriptionEn": "Opportunities to participate in international events"
+        }
+      ],
+      "ctaText": "회원가입하기",
+      "ctaTextEn": "Join Now",
+      "ctaLink": "pages/register.html"
+    },
+    "contact": {
+      "title": "연락처",
+      "titleEn": "Contact Us",
+      "phone": "+82-2-737-4727",
+      "email": "info@dongpo750.com",
+      "fax": "+82-2-737-4728",
+      "address": "서울특별시 중구 세종대로 110",
+      "addressEn": "110 Sejong-daero, Jung-gu, Seoul, South Korea",
+      "hours": "평일 09:00 - 18:00",
+      "hoursEn": "Weekdays 09:00 - 18:00"
+    },
+    "footer": {
+      "copyright": "© 2026 KILC 세계지도자협회. All rights reserved.",
+      "quickLinks": [
+        {
+          "text": "개인정보처리방침",
+          "textEn": "Privacy Policy",
+          "url": "#"
+        },
+        {
+          "text": "이용약관",
+          "textEn": "Terms of Service",
+          "url": "#"
+        },
+        {
+          "text": "사이트맵",
+          "textEn": "Sitemap",
+          "url": "#"
+        }
+      ]
+    }
+  },
+  "posts": {
+    "news": [],
+    "events": [],
+    "announcements": []
+  }
+}

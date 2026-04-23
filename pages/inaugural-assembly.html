@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>창립총회 - KILC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <style>
+        .assembly-hero {
+            background: linear-gradient(135deg, #2d8659 0%, #1f6b44 100%);
+            padding: 60px 20px;
+            color: white;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .assembly-hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .assembly-hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        .assembly-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(45, 134, 89, 0.2);
+        }
+        
+        .info-card i {
+            font-size: 3rem;
+            color: #2d8659;
+            margin-bottom: 20px;
+        }
+        
+        .info-card h3 {
+            color: #1f6b44;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .info-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .assembly-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .assembly-content h3 {
+            color: #2d8659;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #2d8659;
+        }
+        
+        .assembly-content h4 {
+            color: #1f6b44;
+            font-size: 1.4rem;
+            margin: 30px 0 20px 0;
+        }
+        
+        .assembly-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .assembly-content ul li {
+            padding: 12px 0 12px 35px;
+            position: relative;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .assembly-content ul li:before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #2d8659;
+            font-size: 1.2rem;
+        }
+        
+        .photo-gallery {
+            margin-top: 50px;
+        }
+        
+        .photo-gallery h3 {
+            text-align: center;
+            color: #2d8659;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 20px;
+            font-size: 1rem;
+        }
+        
+        .agenda-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .agenda-table th {
+            background: linear-gradient(135deg, #2d8659 0%, #1f6b44 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .agenda-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #333;
+        }
+        
+        .agenda-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #2d8659 0%, #1f6b44 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .highlight-box h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .highlight-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <div class="contact-info">
+                        <span><i class="fas fa-envelope"></i> info@dongpo750.com</span>
+                        <span><i class="fas fa-phone"></i> +82-2-737-4727</span>
+                    </div>
+                    <div class="language-selector">
+                        <a href="../index.html" class="active">한국어</a>
+                        <a href="../index-en.html">English</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-content">
+                    <div class="logo">
+                        <a href="../index.html">
+                            <h1>KILC</h1>
+                            <p>세계한민족지도자회의</p>
+                        </a>
+                    </div>
+                    
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
+                    <ul class="nav-menu" id="navMenu">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">KILC 소개</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="greeting.html">이사장 인사말씀</a></li>
+                                <li><a href="inaugural-assembly.html">창립총회</a></li>
+                                <li><a href="charter.html">KILC 정관</a></li>
+                                <li><a href="members.html">KILC 회원명부</a></li>
+                                <li><a href="certificate.html">KILC 등록증</a></li>
+                                <li><a href="education.html">KILC 고유번호</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">KILC 동향</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a href="events.html">행사</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-submenu">
+                                            <a href="regular-events.html">정기행사</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="kilc-online-forum.html">KILC온라인포럼</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="special-events.html">특별행사</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a href="leaders-convention.html">세계지도자대회</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="leaders-convention-2025.html">2025 세계지도자대회</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a href="general-meeting.html">정기총회</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="general-meeting-2026.html">2026 정기총회</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a href="#">회의</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="board-meeting.html">상임이사회</a></li>
+                                        <li><a href="executive-meeting.html">운영이사회</a></li>
+                                        <li><a href="special-meeting.html">임시회의</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">동포정보</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a href="overseas-info.html">해외</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="overseas-asia.html">아시아</a></li>
+                                        <li><a href="overseas-europe.html">유럽</a></li>
+                                        <li><a href="overseas-africa.html">아프리카</a></li>
+                                        <li><a href="overseas-northamerica.html">북아메리카</a></li>
+                                        <li><a href="overseas-southamerica.html">남아메리카</a></li>
+                                        <li><a href="overseas-oceania.html">오세아니아</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a href="domestic-info.html">국내</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="domestic-seoul.html">서울</a></li>
+                                        <li><a href="domestic-gyeonggi.html">경기지역</a></li>
+                                        <li><a href="domestic-gangwon.html">강원</a></li>
+                                        <li><a href="domestic-chungcheong.html">충청</a></li>
+                                        <li><a href="domestic-jeolla.html">전라</a></li>
+                                        <li><a href="domestic-gyeongsang.html">경상</a></li>
+                                        <li><a href="domestic-jeju.html">제주</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">9한 1통</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="hangeul.html">한글</a></li>
+                                <li><a href="hansik.html">한식</a></li>
+                                <li><a href="hanbok.html">한복</a></li>
+                                <li><a href="hanok.html">한옥</a></li>
+                                <li><a href="hanji.html">한지</a></li>
+                                <li><a href="hanak.html">한악</a></li>
+                                <li><a href="hanbang.html">한방</a></li>
+                                <li><a href="hansang.html">한상</a></li>
+                                <li><a href="hankyore.html">한겨레혼</a></li>
+                                <li><a href="unification.html">통일</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Biz-Partners</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="company-by-industry.html">업종별기업</a></li>
+                                <li><a href="company-by-region.html">지역별기업</a></li>
+                                <li><a href="business-partnership.html">사업제휴</a></li>
+                                <li><a href="business-proposal.html">사업제안</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">자유게시판</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="celebrations.html">애경사</a></li>
+                                <li><a href="find-people.html">사람찾기</a></li>
+                                <li><a href="forum.html">자유발언대</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>창립총회</h1>
+            <div class="breadcrumb">
+                <a href="../index.html"><i class="fas fa-home"></i> 홈</a>
+                <span>/</span>
+                <span>KILC 소개</span>
+                <span>/</span>
+                <span>창립총회</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <div class="assembly-hero">
+                <h2>세계한민족지도자회의(KILC) 창립총회</h2>
+                <p>2026년 1차 정기총회를 통한 새로운 시작</p>
+            </div>
+
+            <!-- 총회 개요 -->
+            <div class="assembly-info-grid">
+                <div class="info-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>개최 일시</h3>
+                    <p>2026년 3월<br>제1차 정기총회</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>개최 장소</h3>
+                    <p>대한민국 서울특별시<br>종로구 세종빌딩</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-users"></i>
+                    <h3>참석 인원</h3>
+                    <p>국내외 한민족 지도자<br>회원 및 내빈</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-flag"></i>
+                    <h3>총회 목적</h3>
+                    <p>KILC 공식 창립<br>비전 및 방향 수립</p>
+                </div>
+            </div>
+
+            <!-- 창립총회 의의 -->
+            <div class="assembly-content">
+                <h3><i class="fas fa-lightbulb"></i> 창립총회의 의의</h3>
+                <p style="line-height: 2; color: #333; font-size: 1.1rem; margin-bottom: 20px;">
+                    세계한민족지도자회의(KILC)는 전 세계에 흩어진 750만 재외동포와 대한민국 국민을 하나로 연결하고, 
+                    한민족의 정체성을 확립하며 상생과 번영을 도모하기 위해 설립되었습니다. 
+                    2026년 1차 정기총회는 KILC의 공식적인 출범을 알리는 역사적인 자리로서, 
+                    한민족 공동체의 새로운 미래를 여는 중요한 이정표가 되었습니다.
+                </p>
+            </div>
+
+            <!-- 총회 안건 -->
+            <div class="assembly-content">
+                <h3><i class="fas fa-list-check"></i> 주요 안건</h3>
+                <table class="agenda-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%;">구분</th>
+                            <th>안건 내용</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>제1호 안건</strong></td>
+                            <td>KILC 정관 승인 및 채택</td>
+                        </tr>
+                        <tr>
+                            <td><strong>제2호 안건</strong></td>
+                            <td>임원진 선출 (이사장, 부이사장, 이사, 감사)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>제3호 안건</strong></td>
+                            <td>2026년 사업계획 및 예산안 승인</td>
+                        </tr>
+                        <tr>
+                            <td><strong>제4호 안건</strong></td>
+                            <td>조직 구성 및 운영 방안 확정</td>
+                        </tr>
+                        <tr>
+                            <td><strong>제5호 안건</strong></td>
+                            <td>세계한민족지도자대회 개최 계획 승인</td>
+                        </tr>
+                        <tr>
+                            <td><strong>기타 안건</strong></td>
+                            <td>회원 가입 승인, 지부 설치 계획 등</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 주요 결정 사항 -->
+            <div class="assembly-content">
+                <h3><i class="fas fa-gavel"></i> 주요 결정 사항</h3>
+                
+                <h4>1. 조직 구성</h4>
+                <ul>
+                    <li>이사장을 중심으로 한 임원진 구성 완료</li>
+                    <li>국내외 지부 설치 계획 수립</li>
+                    <li>각 분야별 위원회 조직 (교육위원회, 문화위원회, 경제위원회 등)</li>
+                    <li>사무국 체계 확립 및 운영 방안 확정</li>
+                </ul>
+
+                <h4>2. 사업 방향</h4>
+                <ul>
+                    <li>재외동포 민족정체성 교육 강화 및 지원 사업</li>
+                    <li>세계한민족지도자 정보망(GKN: Global Korean Network) 구축</li>
+                    <li>9한 1통(한글, 한식, 한복, 한옥, 한지, 한악, 한방, 한상, 한겨레혼, 통일) 진흥 사업</li>
+                    <li>한민족 기업가 및 청년 해외 진출 지원</li>
+                    <li>연례 세계한민족지도자대회 개최</li>
+                </ul>
+
+                <h4>3. 비전 선포</h4>
+                <ul>
+                    <li>"전 세계 한민족의 연대와 번영"이라는 비전 천명</li>
+                    <li>한민족 정체성 확립 및 글로벌 경쟁력 강화</li>
+                    <li>내외동포 상생과 한반도 평화통일 기반 조성</li>
+                    <li>차세대 한민족 리더 양성 프로그램 운영</li>
+                </ul>
+            </div>
+
+            <!-- 하이라이트 박스 -->
+            <div class="highlight-box">
+                <h3><i class="fas fa-quote-left"></i> 창립총회 선언문</h3>
+                <p>
+                    "우리는 오늘, 전 세계에 흩어진 750만 재외동포와 대한민국 국민이 하나로 연결되는 
+                    세계한민족지도자회의(KILC)의 공식 창립을 선언합니다. 
+                    우리는 한민족의 정체성을 지키고, 서로 협력하며, 함께 번영하는 
+                    글로벌 한민족 공동체를 만들어 나갈 것을 다짐합니다. 
+                    이를 통해 한반도의 평화와 통일, 그리고 세계 평화에 기여할 것을 약속합니다."
+                </p>
+            </div>
+
+            <!-- 창립 배경 -->
+            <div class="assembly-content">
+                <h3><i class="fas fa-history"></i> 창립 배경</h3>
+                <p style="line-height: 2; color: #333; margin-bottom: 20px;">
+                    지난 20세기, 한민족의 약 1할에 가까운 인구가 조상 대대로 살아온 한반도를 떠나 
+                    전 세계 각지로 이주하였습니다. 일제강점기의 억압, 한국전쟁의 비극, 
+                    경제적 어려움 등 다양한 이유로 고국을 떠난 우리 동포들은 
+                    현재 전 세계 750만 명에 이르고 있습니다.
+                </p>
+                <p style="line-height: 2; color: #333; margin-bottom: 20px;">
+                    이제 이들은 각자의 나라에서 성공적으로 정착하여 정치, 경제, 사회, 문화 각 분야에서 
+                    중추적인 역할을 담당하며 한민족의 우수성을 전 세계에 알리고 있습니다. 
+                    그러나 물리적·심리적 거리로 인해 서로 간의 연대와 협력이 부족한 상황이었습니다.
+                </p>
+                <p style="line-height: 2; color: #333;">
+                    이러한 배경 속에서 전 세계 한민족 지도자들이 하나로 모여 
+                    민족의 정체성을 확립하고, 상호 협력을 통해 공동번영을 이루며, 
+                    한반도 평화통일의 기반을 마련하기 위해 
+                    세계한민족지도자회의(KILC)가 창립되었습니다.
+                </p>
+            </div>
+
+            <!-- 사진 갤러리 -->
+            <div class="photo-gallery">
+                <h3><i class="fas fa-images"></i> 창립총회 현장</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://www.genspark.ai/api/files/s/yg1Mvhho" alt="창립총회 전경">
+                        <div class="gallery-caption">창립총회 - 이사장 연설</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://www.genspark.ai/api/files/s/Fz3UT5qk" alt="임원진 기념촬영">
+                        <div class="gallery-caption">임원진 기념 촬영</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://www.genspark.ai/api/files/s/OhZDRohR" alt="이사장 연설">
+                        <div class="gallery-caption">이사장 기조연설</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://www.genspark.ai/api/files/s/rCWUizsM" alt="총회 사회">
+                        <div class="gallery-caption">창립총회 사회</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://www.genspark.ai/api/files/s/lLWPsIjb" alt="내외빈 축사">
+                        <div class="gallery-caption">창립총회 내,외빈축사</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 향후 계획 -->
+            <div class="assembly-content">
+                <h3><i class="fas fa-road"></i> 향후 활동 계획</h3>
+                <ul>
+                    <li>2026년 하반기: 2026 세계한민족지도자대회 개최</li>
+                    <li>국내외 지부 설치 및 회원 확대 (목표: 100개국 지부 설치)</li>
+                    <li>재외동포 민족교육 프로그램 개발 및 보급</li>
+                    <li>세계한민족지도자 정보망(GKN) 플랫폼 구축</li>
+                    <li>한민족 기업가 교류 및 비즈니스 네트워킹 행사 개최</li>
+                    <li>청년 해외 진출 및 귀국 지원 프로그램 운영</li>
+                    <li>9한 1통 문화 진흥 사업 추진</li>
+                    <li>한반도 평화통일을 위한 국제 협력 사업</li>
+                </ul>
+            </div>
+
+            <!-- 참여 안내 -->
+            <div class="highlight-box" style="background: #f8f9fa; color: #333; border: 3px solid #2d8659;">
+                <h3 style="color: #2d8659;"><i class="fas fa-hand-holding-heart"></i> KILC 함께하기</h3>
+                <p style="color: #333;">
+                    세계한민족지도자회의(KILC)는 전 세계 한민족 지도자 여러분의 참여를 기다리고 있습니다. 
+                    회원 가입, 후원, 봉사 등 다양한 방법으로 함께하실 수 있습니다.
+                </p>
+                <p style="margin-top: 20px; color: #333;">
+                    <strong>문의:</strong> info@dongpo750.com | +82-2-737-4727
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>KILC</h3>
+                    <p>세계한민족지도자회의</p>
+                    <p>Korea International Leaders Congress</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>바로가기</h4>
+                    <ul>
+                        <li><a href="greeting.html">이사장 인사말</a></li>
+                        <li><a href="inaugural-assembly.html">창립총회</a></li>
+                        <li><a href="charter.html">정관</a></li>
+                        <li><a href="members.html">회원명부</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Family Site</h4>
+                    <ul>
+                        <li><a href="#" target="_blank">주한 외국 대사관</a></li>
+                        <li><a href="#" target="_blank">국내 대표단체</a></li>
+                        <li><a href="#" target="_blank">정부부처</a></li>
+                        <li><a href="#" target="_blank">해외 공관</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>연락처</h4>
+                    <p><i class="fas fa-envelope"></i> info@dongpo750.com</p>
+                    <p><i class="fas fa-phone"></i> +82-2-737-4727</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 대한민국 서울시 종로구 당주동100 세종빌딩 B1-31호</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 KILC - 세계한민족지도자회의. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

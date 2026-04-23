@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KILC 관리자 대시보드</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/admin-enhanced.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- 사이드바 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏛️ KILC</h2>
+                <p>관리자 시스템</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>대시보드</span>
+                </a>
+                <a href="menu-manager.html" class="nav-item">
+                    <i class="fas fa-bars"></i>
+                    <span>메뉴 관리</span>
+                </a>
+                <a href="page-manager.html" class="nav-item">
+                    <i class="fas fa-file"></i>
+                    <span>페이지 관리</span>
+                </a>
+                <a href="content-editor.html" class="nav-item">
+                    <i class="fas fa-edit"></i>
+                    <span>내용 편집</span>
+                </a>
+                <a href="contact-manager.html" class="nav-item">
+                    <i class="fas fa-address-book"></i>
+                    <span>연락처 관리</span>
+                </a>
+                <a href="media-manager.html" class="nav-item">
+                    <i class="fas fa-image"></i>
+                    <span>미디어 관리</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>설정</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <div>
+                        <p class="user-name" id="userName">관리자</p>
+                        <p class="user-role">시스템 관리자</p>
+                    </div>
+                </div>
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    로그아웃
+                </button>
+            </div>
+        </aside>
+
+        <!-- 메인 콘텐츠 -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-left">
+                    <h1>📊 대시보드</h1>
+                    <p>KILC 홈페이지 관리 현황</p>
+                </div>
+                <div class="header-right">
+                    <button class="btn-preview" onclick="previewSite()">
+                        <i class="fas fa-eye"></i>
+                        사이트 미리보기
+                    </button>
+                    <button class="btn-publish" onclick="publishChanges()">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        변경사항 적용
+                    </button>
+                </div>
+            </header>
+
+            <!-- 통계 카드 -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #2d8659 0%, #1f6b44 100%);">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalPages">86</h3>
+                        <p>전체 페이지</p>
+                        <small class="stat-detail">한글 34 / 영문 52</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #3fa76f 0%, #2874a6 100%);">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalMenus">6</h3>
+                        <p>메인 메뉴</p>
+                        <small class="stat-detail">서브메뉴 30개</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="languages">2</h3>
+                        <p>지원 언어</p>
+                        <small class="stat-detail">한국어 / English</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="publishedPages">86</h3>
+                        <p>게시된 페이지</p>
+                        <small class="stat-detail">마지막 업데이트: 오늘</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 사이트 상태 -->
+            <section class="site-status">
+                <div class="status-header">
+                    <h2>🌐 사이트 상태</h2>
+                    <span class="status-badge status-online">
+                        <i class="fas fa-circle"></i> 정상 운영 중
+                    </span>
+                </div>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <div class="status-label">
+                            <i class="fas fa-link"></i>
+                            <span>도메인</span>
+                        </div>
+                        <div class="status-value">www.dongpo750.com</div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-label">
+                            <i class="fas fa-envelope"></i>
+                            <span>이메일</span>
+                        </div>
+                        <div class="status-value">info@dongpo750.com</div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-label">
+                            <i class="fas fa-phone"></i>
+                            <span>전화번호</span>
+                        </div>
+                        <div class="status-value">+82-2-737-4727</div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-label">
+                            <i class="fas fa-clock"></i>
+                            <span>마지막 배포</span>
+                        </div>
+                        <div class="status-value">2026-03-12 15:30</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 빠른 작업 -->
+            <section class="quick-actions">
+                <h2>🚀 빠른 작업</h2>
+                <div class="action-grid">
+                    <div class="action-card" onclick="location.href='menu-manager.html'">
+                        <i class="fas fa-bars"></i>
+                        <h3>메뉴 관리</h3>
+                        <p>메인 또는 서브 메뉴 추가/수정/삭제</p>
+                    </div>
+                    <div class="action-card" onclick="location.href='page-manager.html'">
+                        <i class="fas fa-file"></i>
+                        <h3>페이지 관리</h3>
+                        <p>페이지 생성 및 관리</p>
+                    </div>
+                    <div class="action-card" onclick="location.href='content-editor.html'">
+                        <i class="fas fa-edit"></i>
+                        <h3>콘텐츠 편집</h3>
+                        <p>텍스트 및 내용 수정</p>
+                    </div>
+                    <div class="action-card" onclick="location.href='settings.html'">
+                        <i class="fas fa-cog"></i>
+                        <h3>사이트 설정</h3>
+                        <p>연락처, 색상, SEO 등 설정</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 주요 링크 -->
+            <section class="important-links">
+                <h2>🔗 주요 링크</h2>
+                <div class="links-grid">
+                    <div class="link-card">
+                        <div class="link-header">
+                            <i class="fas fa-home"></i>
+                            <h3>메인 페이지</h3>
+                        </div>
+                        <div class="link-list">
+                            <a href="../index.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 한국어 메인 (기본)
+                            </a>
+                            <a href="../index-en.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 영문 메인
+                            </a>
+                            <a href="../index-green.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 한국어 (그린)
+                            </a>
+                            <a href="../index-en-green.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 영문 (그린)
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="link-card">
+                        <div class="link-header">
+                            <i class="fas fa-calendar-alt"></i>
+                            <h3>주요 행사</h3>
+                        </div>
+                        <div class="link-list">
+                            <a href="../pages/leaders-convention-2025.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 2025 세계지도자대회
+                            </a>
+                            <a href="../pages/general-meeting-2026.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 2026 총회
+                            </a>
+                            <a href="../pages/board-meeting.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 이사회
+                            </a>
+                            <a href="../pages/special-meeting.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 임시총회
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="link-card">
+                        <div class="link-header">
+                            <i class="fas fa-users"></i>
+                            <h3>회원 관리</h3>
+                        </div>
+                        <div class="link-list">
+                            <a href="../pages/members.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 회원 명단
+                            </a>
+                            <a href="../pages/certificate.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 임원 현황
+                            </a>
+                            <a href="../pages/register.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 회원가입
+                            </a>
+                            <a href="../pages/login.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 로그인
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="link-card">
+                        <div class="link-header">
+                            <i class="fas fa-file-pdf"></i>
+                            <h3>주요 문서</h3>
+                        </div>
+                        <div class="link-list">
+                            <a href="../pages/charter.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 정관
+                            </a>
+                            <a href="../pages/organization.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 조직도
+                            </a>
+                            <a href="../pages/founding.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 창립 취지
+                            </a>
+                            <a href="../pages/greeting.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 인사말
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 최근 수정 내역 -->
+            <section class="recent-changes">
+                <h2>📝 최근 수정 내역</h2>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>페이지</th>
+                                <th>작업 유형</th>
+                                <th>수정자</th>
+                                <th>수정 시간</th>
+                                <th>작업</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentChanges">
+                            <tr>
+                                <td>이사장 인사말</td>
+                                <td><span class="badge badge-edit">수정</span></td>
+                                <td>관리자</td>
+                                <td>2026-03-12 14:30</td>
+                                <td>
+                                    <button class="btn-sm btn-view" onclick="viewPage('greeting')">
+                                        <i class="fas fa-eye"></i> 보기
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2025 세계지도자대회</td>
+                                <td><span class="badge badge-new">생성</span></td>
+                                <td>관리자</td>
+                                <td>2026-03-11 09:15</td>
+                                <td>
+                                    <button class="btn-sm btn-view" onclick="viewPage('leaders-2025')">
+                                        <i class="fas fa-eye"></i> 보기
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>연락처 정보</td>
+                                <td><span class="badge badge-edit">수정</span></td>
+                                <td>관리자</td>
+                                <td>2026-03-10 16:45</td>
+                                <td>
+                                    <button class="btn-sm btn-view" onclick="viewPage('contact')">
+                                        <i class="fas fa-eye"></i> 보기
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 시스템 상태 -->
+            <section class="system-status">
+                <h2>🔧 시스템 상태</h2>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <div class="status-icon success">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="status-content">
+                            <h4>웹사이트 상태</h4>
+                            <p>정상 운영 중</p>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-icon success">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="status-content">
+                            <h4>SSL 인증서</h4>
+                            <p>유효함</p>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-icon warning">
+                            <i class="fas fa-exclamation"></i>
+                        </div>
+                        <div class="status-content">
+                            <h4>미적용 변경사항</h4>
+                            <p>0개</p>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-icon success">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="status-content">
+                            <h4>백업 상태</h4>
+                            <p>최신</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        // 페이지 로드 시 인증 확인
+        checkAuth();
+
+        // 사용자 이름 표시
+        const session = getSession();
+        if (session) {
+            document.getElementById('userName').textContent = session.username;
+        }
+
+        // 사이트 미리보기
+        function previewSite() {
+            window.open('../index.html', '_blank');
+        }
+
+        // 변경사항 적용
+        function publishChanges() {
+            if (confirm('변경사항을 적용하시겠습니까?\n\n적용된 내용은 즉시 웹사이트에 반영됩니다.')) {
+                alert('변경사항이 성공적으로 적용되었습니다! ✅');
+            }
+        }
+
+        // 페이지 보기
+        function viewPage(page) {
+            window.open(`../pages/${page}.html`, '_blank');
+        }
+
+        // 로그아웃
+        function logout() {
+            if (confirm('로그아웃하시겠습니까?')) {
+                localStorage.removeItem('kilc_admin_session');
+                sessionStorage.removeItem('kilc_admin_session');
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
+</body>
+</html>

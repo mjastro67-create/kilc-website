@@ -1,0 +1,48 @@
+{
+  "general": {
+    "siteName": "KILC 세계지도자협회",
+    "siteNameEn": "KILC World Leaders Association",
+    "siteDescription": "세계평화와 인류공영을 위한 세계지도자들의 협력체",
+    "siteUrl": "https://www.dongpo750.com",
+    "defaultLang": "ko",
+    "enableMultiLang": true
+  },
+  "contact": {
+    "phone": "+82-2-737-4727",
+    "email": "info@dongpo750.com",
+    "fax": "+82-2-737-4728",
+    "address": "서울특별시 중구 세종대로 110"
+  },
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "youtube": "",
+    "twitter": ""
+  },
+  "seo": {
+    "metaTitle": "KILC 세계지도자협회 - 세계평화와 인류공영",
+    "metaDescription": "KILC는 세계평화와 인류공영을 위해 노력하는 세계지도자들의 협력체입니다.",
+    "metaKeywords": "KILC, 세계지도자협회, 세계평화, 인류공영",
+    "googleAnalytics": "",
+    "naverWebmaster": "",
+    "ogImage": "https://www.dongpo750.com/images/og-image.jpg"
+  },
+  "appearance": {
+    "primaryColor": "#2d8659",
+    "secondaryColor": "#1f6b44",
+    "accentColor": "#3fa76f",
+    "blueColor": "#2874a6",
+    "logoUrl": "/images/logo.png",
+    "faviconUrl": "/favicon.ico",
+    "enableGradient": true,
+    "enableStickyNav": true,
+    "enableFooterSocial": true
+  },
+  "advanced": {
+    "customCSS": "",
+    "customJS": "",
+    "customHead": "",
+    "maintenanceMode": false,
+    "maintenanceMessage": "현재 사이트 점검 중입니다. 잠시 후 다시 방문해 주세요."
+  }
+}
